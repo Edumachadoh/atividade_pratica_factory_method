@@ -1,13 +1,13 @@
 public class FactoryCriptomoeda extends PagamentoFactory {
-    private int saldo;
+    private int id;
 
-    public FactoryCriptomoeda(int saldo) {
-        this.saldo = saldo;
+    public FactoryCriptomoeda(int id) {
+        this.id = id;
     }
 
 
     @Override
     public IPagamento criarPagamento() {
-        return new PagamentoCriptomoeda(1);
+        return new PagamentoCriptomoeda(id);
     }
 }

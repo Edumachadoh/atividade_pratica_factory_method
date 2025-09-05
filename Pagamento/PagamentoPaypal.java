@@ -11,7 +11,8 @@ public class PagamentoPaypal implements IPagamento {
     }
 
     @Override
-    public String processarPagamento(int valor) {
+    public void processarPagamento(int valor) {
+       
         try {
             // Lê o conteúdo do arquivo como uma única string
             String conteudo = Files.readString(Paths.get("lista_emails.txt"));
@@ -25,13 +26,15 @@ public class PagamentoPaypal implements IPagamento {
                                             .anyMatch(e -> e.equalsIgnoreCase(this.email));
 
             if (emailEncontrado) {
-                return "Pagamento em criptomoeda realizado";
+                 System.out.println("Processou pagamento paypal\nValor: "+valor+"\nEmail: "+this.email);
+            } else {
+                System.out.println("Processamento com erro de pagamento paypal\nValor: "+valor+"\nEmail: "+this.email);
             }
 
         } catch (IOException e) {
-            return "Pagamento cancelado";
+             System.out.println("Erro na operação, contate o suporte do sistema!");
         }
 
-        return "Pagamento cancelado";
+         
     }
 }

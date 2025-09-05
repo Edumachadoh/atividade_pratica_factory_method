@@ -2,6 +2,9 @@ public class LibraryManagementSystem {
     public static void main(String[] args) {
         
         // Criar um objeto do tipo IBorrowable para garantir o polimorfismo conseguir gerar objetos de tipos diferentes
+        // O cliente cria um objeto "emprestavel" IBorrowable do tipo que deseja, Book, Magazine, DigitalMedia ou vários itens do mesmo ou de outro tipo 
+        // Do jeito que está montado o usuário tem de criar o objeto, por exemplo Book e como parâmetro ja definir seus atributos próprios e os atributos herdados de LibraryItem, pois existe uma relação de herança entre essas classes.
+
         IBorrowable item = new Book("Harry Potter", "Jack Frigman", 2012, 175);
         item.showInfo();
         item.borrow();

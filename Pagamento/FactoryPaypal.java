@@ -1,13 +1,13 @@
 public class FactoryPaypal extends PagamentoFactory {
-    private String string;
+    private String email;
 
-    public FactoryPaypal(String string) {
-        this.string = string;
+    public FactoryPaypal(String email) {
+        this.email = email;
     }
    
 
     @Override
     public IPagamento criarPagamento() {
-        return new PagamentoPaypal(string);
+        return new PagamentoPaypal(email);
     }
 }
